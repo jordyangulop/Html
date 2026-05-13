@@ -1,0 +1,274 @@
+/* ========== MODAL - ESTILOS COMPLETOS ========== */
+
+/* Overlay (fondo oscuro) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenedor del modal */
+.modal-container {
+    background: linear-gradient(135deg, #1e1a3a, #2a2548);
+    border-radius: 28px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.7);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+/* Scrollbar personalizada */
+.modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: #4ecdc4;
+    border-radius: 10px;
+}
+
+/* Botón cerrar */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+}
+
+.modal-close:hover {
+    background: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+/* Cabecera del modal */
+.modal-header {
+    padding: 30px 30px 15px 30px;
+    border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.modal-header h2 {
+    font-size: 28px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-header h2 i {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #4ecdc4;
+    font-size: 32px;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 25px 30px;
+    color: #e0e0e0;
+}
+
+.modal-body p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.modal-body h3 {
+    color: #4ecdc4;
+    margin: 20px 0 10px 0;
+    font-size: 20px;
+}
+
+.modal-body h3:first-of-type {
+    margin-top: 0;
+}
+
+/* Listas dentro del modal */
+.modal-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-body li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.modal-body li:before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #4ecdc4;
+}
+
+/* Tags o etiquetas */
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.modal-tag {
+    background: rgba(78, 205, 196, 0.15);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4ecdc4;
+    border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+/* Imagen dentro del modal */
+.modal-image {
+    width: 100%;
+    border-radius: 16px;
+    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    text-align: center;
+}
+
+.modal-image img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.modal-image i {
+    font-size: 80px;
+    color: #4ecdc4;
+}
+
+/* Footer del modal con botones */
+.modal-footer {
+    padding: 20px 30px 30px 30px;
+    border-top: 1px solid rgba(78, 205, 196, 0.2);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.modal-btn {
+    padding: 10px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+.modal-btn-primary {
+    background: linear-gradient(135deg, #ff6b6b, #f97316);
+    color: white;
+}
+
+.modal-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+}
+
+.modal-btn-secondary {
+    background: transparent;
+    border: 1px solid #4ecdc4;
+    color: #4ecdc4;
+}
+
+.modal-btn-secondary:hover {
+    background: #4ecdc4;
+    color: #0f0c29;
+}
+
+/* Animación de entrada para contenido */
+.modal-body {
+    animation: modalFadeIn 0.4s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 22px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        padding: 20px;
+    }
+    
+    .modal-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
